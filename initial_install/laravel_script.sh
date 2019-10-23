@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 dir="naposao"
 server_domain_or_IP="40.85.97.11"
