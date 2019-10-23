@@ -15,6 +15,3 @@ sudo apt install php-fpm php-mysql
 #Install mysql
 sudo apt install mysql-server
 sudo mysql_secure_installation
-
-sudo mysql
-
