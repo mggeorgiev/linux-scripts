@@ -39,9 +39,8 @@ sudo echo "    root /var/www/${dir}/public;" >> "/etc/nginx/sites-available/$dir
 #        include fastcgi_params;
 #    }
 #
-#    location ~ /\.(?!well-known).* {
-#        deny all;
-#    }
+sudo echo "    location ~ /\.(?!well-known).* {"  >> "/etc/nginx/sites-available/$dir"
+sudo echo "        deny all;"  >> "/etc/nginx/sites-available/$dir"
 sudo echo "}"  >> "/etc/nginx/sites-available/$dir"
 
 sudo ln -s /etc/nginx/sites-available/$dir /etc/nginx/sites-enabled/
