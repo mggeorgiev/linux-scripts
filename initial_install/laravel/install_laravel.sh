@@ -29,29 +29,29 @@ php artisan
 #sudo echo "    server_name ${server_domain_or_IP};" >> "/etc/nginx/sites-available/$dir"
 #sudo echo "    root /var/www/${dir}/public;" >> "/etc/nginx/sites-available/$dir" 
 #
-#    add_header X-Frame-Options "SAMEORIGIN";
-#    add_header X-XSS-Protection "1; mode=block";
-#    add_header X-Content-Type-Options "nosniff";
+#sudo echo "    add_header X-Frame-Options "SAMEORIGIN";" >> "/etc/nginx/sites-available/$dir"
+#sudo echo "    add_header X-XSS-Protection "1; mode=block";" >> "/etc/nginx/sites-available/$dir"
+#sudo echo "    add_header X-Content-Type-Options "nosniff";" >> "/etc/nginx/sites-available/$dir"
 #
-#    index index.html index.htm index.php;
+#sudo echo "    index index.html index.htm index.php;" >> "/etc/nginx/sites-available/$dir"
 #
-#    charset utf-8;
+#sudo echo "    charset utf-8;" >> "/etc/nginx/sites-available/$dir"
 #
-#    location / {
-#        try_files $uri $uri/ /index.php?$query_string;
-#    }
+#sudo echo "    location / {" >> "/etc/nginx/sites-available/$dir"
+#sudo echo "        try_files $uri $uri/ /index.php?$query_string;" >> "/etc/nginx/sites-available/$dir"
+#sudo echo "    }" >> "/etc/nginx/sites-available/$dir"
 #
-#    location = /favicon.ico { access_log off; log_not_found off; }
-#    location = /robots.txt  { access_log off; log_not_found off; }
+#sudo echo "    location = /favicon.ico { access_log off; log_not_found off; }" >> "/etc/nginx/sites-available/$dir"
+#sudo echo "    location = /robots.txt  { access_log off; log_not_found off; }" >> "/etc/nginx/sites-available/$dir"
 #
-#    error_page 404 /index.php;
+#sudo echo "    error_page 404 /index.php;" >> "/etc/nginx/sites-available/$dir"
 #
-#    location ~ \.php$ {
-#        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-#        fastcgi_index index.php;
-#        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
-#        include fastcgi_params;
-#    }
+#sudo echo "    location ~ \.php$ {" >> "/etc/nginx/sites-available/$dir"
+#sudo echo "        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;" >> "/etc/nginx/sites-available/$dir"
+#sudo echo "        fastcgi_index index.php;" >> "/etc/nginx/sites-available/$dir"
+#sudo echo "        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;" >> "/etc/nginx/sites-available/$dir"
+#sudo echo "        include fastcgi_params;" >> "/etc/nginx/sites-available/$dir"
+#sudo echo "    }" >> "/etc/nginx/sites-available/$dir"
 #
 #sudo echo "    location ~ /\.(?!well-known).* {"  >> "/etc/nginx/sites-available/$dir"
 #sudo echo "        deny all;"  >> "/etc/nginx/sites-available/$dir"
@@ -60,5 +60,3 @@ php artisan
 #sudo ln -s /etc/nginx/sites-available/$dir /etc/nginx/sites-enabled/
 
 #sudo nano /etc/nginx/sites-available/$dir
-
-
