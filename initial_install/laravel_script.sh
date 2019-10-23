@@ -3,7 +3,16 @@
 dir="naposao"
 server_domain_or_IP="40.85.97.11"
 
-#sudo mv ~/$dir /var/www/$dir
+sudo apt update
+sudo apt install php-mbstring php-xml php-bcmath
+
+#sudo mysql
+sudo mysql -h localhost -u root -p -e "CREATE DATABASE IF NOT EXISTS ${dir};"
+
+read -sp 'Database Password for ${dir}_user: ' password
+sudo mysql -h localhost -u root -p -e "GRANT ALL ON travel_list.* TO '${dir}_user'@'localhost' IDENTIFIED BY '${password}' WITH GRANT OPTION;"
+
+sudo mv ~/$dir /var/www/$dir
 
 sudo chown -R www-data.www-data /var/www/$dir/storage
 sudo chown -R www-data.www-data /var/www/$dir/bootstrap/cache
