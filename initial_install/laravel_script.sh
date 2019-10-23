@@ -1,6 +1,7 @@
 
 
 dir="naposao"
+server_domain_or_IP="40.85.97.11"
 
 #sudo mv ~/$dir /var/www/$dir
 
@@ -9,10 +10,10 @@ sudo chown -R www-data.www-data /var/www/$dir/bootstrap/cache
 
 #sudo nano /etc/nginx/sites-available/$dir
 
-#sudo cat server >> {  /etc/nginx/sites-available/$dir
-#sudo cat listen 80; >> /etc/nginx/sites-available/$dir
-#    server_name server_domain_or_IP;
-#    root /var/www/travel_list/public;
+sudo echo "server {" >> "/etc/nginx/sites-available/$dir"
+sudo echo "listen 80;" >> "/etc/nginx/sites-available/$dir"
+sudo echo "    server_name ${server_domain_or_IP};" >> "/etc/nginx/sites-available/$dir"
+sudo echo "    root /var/www/${dir}/public;" >> "/etc/nginx/sites-available/$dir" 
 #
 #    add_header X-Frame-Options "SAMEORIGIN";
 #    add_header X-XSS-Protection "1; mode=block";
@@ -41,7 +42,7 @@ sudo chown -R www-data.www-data /var/www/$dir/bootstrap/cache
 #    location ~ /\.(?!well-known).* {
 #        deny all;
 #    }
-#}
+sudo echo "}"  >> "/etc/nginx/sites-available/$dir"
 
 sudo ln -s /etc/nginx/sites-available/$dir /etc/nginx/sites-enabled/
 
