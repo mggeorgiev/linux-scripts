@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [ "$1" != "" ]; then
-    if ["$1"] == "help"]; then 
+    if [ "$1" == "help" ]; then 
         echo "Use remove to stop and delete the registry"
-    elif ["$1" == "remove"]; then
+    elif [ "$1" == "remove" ]; then
         docker stop registry
         docker rmi registry
     fi
