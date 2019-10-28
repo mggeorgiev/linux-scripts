@@ -4,16 +4,17 @@ source="/backup_local/vhds/"
 target="/attached/backup/vhds/"
 
 Weekly="Weekly"
-Monthly="Monthly"
 Yearly="Yearly"
 
 if [ "$1" != "" ]; then
     if [ "$1" == "weekly" ]; then 
         sudo mount /dev/sdf1 /attached
+        $target+="Weekly"
         sudo rsync -avzh --progress $source ${target}${Weekly}
         sudo umount /attached
     elif [ "$1" == "monthly" ]; then
         sudo mount /dev/sdf1 /attached
+        $target+="Monthly"
         sudo rsync -avzh --progress /backup_local/vhds/ /attached/backup/vhds/Monthly
         sudo umount /attached
     elif [ "$1" == "yearly" ]; then
