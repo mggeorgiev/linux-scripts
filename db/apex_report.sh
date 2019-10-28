@@ -1,2 +1,2 @@
 #/bin/bash
-sudo georgiem@apex -t "du -h"
+ssh georgiem@apex -t "sudo du -h"
