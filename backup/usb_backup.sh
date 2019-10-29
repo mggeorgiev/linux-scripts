@@ -4,23 +4,22 @@ source="/backup_local/vhds/"
 target="/attached/backup/vhds/"
 
 case $1 in
-  weekly )    
+  weekly )
   	echo "weekly"
 	target+="Wearly"
 	run="true"
 	;;
-  monthly )   
+  monthly )
   	echo "monthly"
 	target+="Monthly"
 	run="true"
 	;;
-  yearly ) 
+  yearly )
   	echo "yearly"
 	target+="Mearly"
 	run="true"
-	echo $run
 	;;
-   * ) 
+   * )
 	echo "Missing parameter"
 	echo "Use 'bash usb_backup.sh weekly' to backup to the weekly directiry"
 	echo "Use 'bash usb_backup.sh monthly' to backup to the monthly directiry"
@@ -28,7 +27,7 @@ case $1 in
    	;;
 esac
 
-if [ "$run" == "true"]; then
+if [ "$run" == "true" ]; then
         sudo mount /dev/sdf1 /attached
 	sudo virsh suspend u-boinc
         sudo rsync -avzh --progress $source $target
