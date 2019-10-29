@@ -2,6 +2,7 @@
 
 source="/backup_local/vhds/"
 target="/attached/backup/vhds/"
+log="/home/georgiem/" #$HOME
 
 case $1 in
   weekly )
@@ -30,7 +31,7 @@ esac
 if [ "$run" == "true" ]; then
         sudo mount /dev/sdf1 /attached
 	sudo virsh suspend u-boinc
-        sudo rsync -avzh --progress $source $target
+        sudo rsync -avzh --progress $source $target --log-file=${log}/.rsyncd.log
 	sudo virch resume u-boinc
         sudo umount /attached
 fi
