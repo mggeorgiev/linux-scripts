@@ -7,7 +7,7 @@ log="/home/georgiem/" #$HOME
 case $1 in
   weekly )
   	echo "weekly"
-	target+="Wearly"
+	target+="Weekly"
 	run="true"
 	;;
   monthly )
@@ -17,7 +17,7 @@ case $1 in
 	;;
   yearly )
   	echo "yearly"
-	target+="Mearly"
+	target+="Yearly"
 	run="true"
 	;;
    * )
@@ -32,6 +32,6 @@ if [ "$run" == "true" ]; then
         sudo mount /dev/sdf1 /attached
 	sudo virsh suspend u-boinc
         sudo rsync -avzh --progress $source $target --log-file=${log}/.rsyncd.log
-	sudo virch resume u-boinc
+	sudo virsh resume u-boinc
         sudo umount /attached
 fi
