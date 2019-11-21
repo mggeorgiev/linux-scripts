@@ -31,7 +31,7 @@ esac
 if [ "$run" == "true" ]; then
         sudo mount /dev/sdf1 /attached
 	sudo virsh suspend u-boinc
-        sudo rsync -avzh --progress $source $target --log-file=${log}/.rsyncd.log
+        sudo rsync -avzh --progress $source $target --log-file=${log}/rsync.log
 	sudo virsh resume u-boinc
         sudo umount /attached
 fi
