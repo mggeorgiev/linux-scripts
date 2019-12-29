@@ -10,8 +10,15 @@ sudo chmod +x update.sh
 sh update.sh
 
 sudo apt install git
-git config --global user.name "Martin Georgiev"
-git config --global user.email "mggeorgiev@gmail.com"
+
+echo Please ented github username:
+read username
+
+echo Please enter github email:
+read useremail
+
+git config --global user.name $username
+git config --global user.email $useremail
 git config --list
 
 #Pull git repository
