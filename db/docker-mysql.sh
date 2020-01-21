@@ -1,6 +1,6 @@
 #!/bin/bash
 
-value=$(cat userpass.txt)
+value=$(cat ~/userpass.txt)
 
 sudo docker run --name some-mysql \
 	#-v /my/custom:/etc/mysql/conf.d \
