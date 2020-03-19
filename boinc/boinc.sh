@@ -3,18 +3,18 @@
 case $1 in
   update )
   	echo "update"
-	  param1+="update"
+	  param1="update"
 	  run="true"
 	;;
   reset )
   	echo "reset"
-	  param1+="reset"
+	  param1="reset"
 	  run="true"
 	;;
   resume )
   	echo "resume"
-    target+="resume"
-    run="true"
+	param1="resume"
+	run="true"
 	;;
    * )
 	echo "Missing parameter"
