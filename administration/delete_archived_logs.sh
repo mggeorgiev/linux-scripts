@@ -9,7 +9,7 @@ do
     #echo "Processing $FILE file..."
     if test -f "$FILE"; then
         echo "$FILE exist"
-        cp "$FILE" /backup_local/logs/log_daily/temp/
+        sudo cp "$FILE" /backup_local/logs/log_daily/temp/
         echo "$FILE deleted"
     fi  # take action on each file. $f store current file name
   #cat $f
