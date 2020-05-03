@@ -4,18 +4,18 @@ value=$(cat userpass.txt)
 
 case $1 in
   2017 )
-      sudo docker stop sql2017 && sudo docker rm sql2017
+      sudo docker stop sql${1} && sudo docker rm sql${1}
       sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=${value}' \
          --restart=always \
          -v /home/georgiem/mssql:/var/opt/mssql/data \
-         -p 1433:1433 --name sql3 \
+         -p 1433:1433 --name sql${1} \
          -d mcr.microsoft.com/mssql/server:2017-latest
 	;;
   2019 )
-      sudo docker stop sql2019 && sudo docker rm sql2019
+      sudo docker stop sql${1} && sudo docker rm sql${1}
       sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=${value}" \
          -p 1431:1433 \
-         --name sql1 \
+         --name sql${1} \
          --volume mssqlsystem:/var/opt/mssql \
          --volume mssqluser:/var/opt/sqlserver \
          --restart=unless-stopped \
@@ -27,6 +27,8 @@ case $1 in
 	echo "Use 'bash docker-mssql.sh 2019' to start a MSSQL 2017 docker instance"
    	;;
 esac
+
+sudo docker ps -a
 
 #Single user mode
 #sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=${value}' \
