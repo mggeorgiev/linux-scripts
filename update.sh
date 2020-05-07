@@ -7,7 +7,7 @@ if [ "$1" == "y" ]; then
 else
         # Read User Input
         echo -n "Do you want to proceed? (y/n):"
-        read -s proceed
+        read proceed
         if [ "$proceed" == "y" ]; then
                 echo "Use remove to stop and delete the registry"
                 sudo apt upgrade -y
