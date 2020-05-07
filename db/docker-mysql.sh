@@ -2,6 +2,7 @@
 
 value=$(cat ~/userpass.txt)
 
+sudo docker stop mysql-latest && sudo docker rm mysql-latest
 sudo docker run --name mysql-latest \
         -v ~/mysql:/var/lib/mysql \
         -e MYSQL_ROOT_PASSWORD=$value \
