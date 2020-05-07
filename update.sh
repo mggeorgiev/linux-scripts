@@ -9,7 +9,7 @@ else
         echo -n "Do you want to proceed? (y/n):"
         read proceed
         if [ "$proceed" == "y" ]; then
-                echo "Use remove to stop and delete the registry"
+                echo "Upgrading all pachages..."
                 sudo apt upgrade -y
         fi
 
