@@ -1,5 +1,5 @@
 #!/bin/bash
-container_name = covid19
+container_name = ${1}
 registry = localhost:5000/${container_name}
 
 sudo docker build -t ${container_name} .
