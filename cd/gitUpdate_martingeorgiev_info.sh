@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /var/www/martingeorgiev.com/public_html
+cd /var/www/martingeorgiev.info/public_html
 git pull origin master
