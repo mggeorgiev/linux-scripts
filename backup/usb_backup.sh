@@ -29,7 +29,9 @@ case $1 in
 esac
 
 if [ "$run" == "true" ]; then
-        sudo mount /dev/sdf1 /attached
+	#FCB67C4EB67C0B80
+	sudo mount UUID=FCB67C4EB67C0B80 /attached
+        #sudo mount /dev/sde1 /attached
 	sudo virsh suspend u-boinc
         sudo rsync -avzh --progress $source $target --log-file=${log}/rsync.log
 	sudo virsh resume u-boinc
