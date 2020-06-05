@@ -13,8 +13,10 @@ if [ "$(docker ps -q -f name=$container_name)" ]; then
 fi
 
 
-$ docker run -d \
+docker run  \
     --name $container_name \
     -e POSTGRES_PASSWORD=$value \
-    -v /postgres:/var/lib/postgresql/data \
-    postgres
+    -v ~/postgres:/var/lib/postgresql/data \
+    --restart=unless-stopped \
+    -p 5432:5432 \
+    -d postgres:latest 
