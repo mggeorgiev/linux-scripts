@@ -7,4 +7,4 @@ kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/${VERSI
 kubectl create -f dashboard.admin-user.yml -f dashboard.admin-user-role.yml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/${VERSION_KUBE_DASHBOARD}/aio/deploy/recommended.yaml -f dashboard.admin-user.yml -f dashboard.admin-user-role.yml
 kubectl -n kubernetes-dashboard describe secret admin-user-token | grep ^token
-kubectl proxy
+kubectl proxy --address='0.0.0.0' --port=8001 --accept-hosts='.*'
