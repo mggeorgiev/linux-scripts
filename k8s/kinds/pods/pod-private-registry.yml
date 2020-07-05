@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: martingeorgiev
+spec:
+  containers:
+  - name: martingeorgiev
+    image: d-infra.sofia:5000/martigeorgiev:latest
