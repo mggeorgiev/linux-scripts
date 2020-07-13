@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: martingeorgievinfo
+  labels:
+    app: web-based
+  namespace: martingeorgiev
+  annotations:
+    monitoring: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-based
+  template:
+    metadata:
+      labels:
+        app: web-based
+    spec:
+      containers:
+      - image: acrprivate.azurecr.io/mggeorgievmartingeorgievinfo:30
+        name: martingeorgievinfo
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+          requests: 
+            memory: "1Gi"
+            cpu: "500m"
