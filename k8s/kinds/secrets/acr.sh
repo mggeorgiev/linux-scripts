@@ -1,15 +1,15 @@
 #!/bin/bash
 
 #source /path/to/file
-#your-registry-server=""
-#your-name="Martin Georgiev"
-#your-pword="" 
-#your-email="mggeorgiev@gmail.com"
+#yourregistry-server=""
+#yourname="Martin Georgiev"
+#yourpword="" 
+#youremail="mggeorgiev@gmail.com"
 #namespace=""
 
 kubectl create secret docker-registry regcred \
                       --namespace "${namespace}" \
-                      --docker-server="${your-registry-server}" \
-                      --docker-username="${your-name>}" \
-                      --docker-password="${your-pword}" \
-                      --docker-email="${your-email}"
+                      --docker-server="${yourregistryserver}" \
+                      --docker-username="${yourname}" \
+                      --docker-password="${yourpword}" \
+                      --docker-email="${youremail}"
