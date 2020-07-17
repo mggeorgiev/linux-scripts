@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#source /path/to/file
+source acr.cfg
 #yourregistry-server=""
 #yourname="Martin Georgiev"
 #yourpword="" 
