@@ -7,6 +7,8 @@ else
   groupadd -g 5000 rouser
 
   useradd -u 5000 -g 5000 -md /home/rouser -c "Azure Migrate Linux User" -s /bin/bash rouser
+  #adduser --home /var/azmgr/specific_folder --shell /bin/bash --no-create-home --ingroup www-data --ingroup ssh rouser
 
   passwd rouser $1
 fi
+
