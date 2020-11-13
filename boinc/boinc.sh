@@ -26,8 +26,8 @@ case $1 in
    * )
         echo "Missing parameter"
         echo "Use 'bash boinc.sh update' to contact scheduling server"
-        echo "Use 'bash usb_backup.sh reset' to delete current work and get more"
-        echo "Use 'bash usb_backup.sh resume' to resume"
+        echo "Use 'bash boinc.sh reset' to delete current work and get more"
+        echo "Use 'bash boinc.sh resume' to resume"
         ;;
 esac
 
