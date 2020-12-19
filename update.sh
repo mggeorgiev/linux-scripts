@@ -12,7 +12,6 @@ else
                 echo "Upgrading all pachages..."
                 sudo apt upgrade -y
         fi
-
 fi
 
 sudo apt autoremove
