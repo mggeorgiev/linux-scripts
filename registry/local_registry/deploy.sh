@@ -1,6 +1,6 @@
 #!/bin/bash
 container_name="$1"
-registry="192.168.88.46:5000/${container_name}"
+registry="d-infra.sofia:5000/${container_name}"
 
 sudo docker build -t ${container_name} .
 #sudo docker ps -aqf "name=${container_name}"
