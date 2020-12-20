@@ -19,4 +19,7 @@ sudo sed -i 's/127.0.1.1*/127.0.1.1 ${1}.sofia  ${1}/g' /etc/hosts
 sudo hostnamectl set-hostname $1
 hostnamectl
 
-sudo systemd-machine-id-setup
+cat /etc/machine-id
+sudo sed -i "1s/.*/""/" /etc/machine-id
+sudo systemd-machine-id-setup #--commit
+cat /etc/machine-id
