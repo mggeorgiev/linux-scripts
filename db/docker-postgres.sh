@@ -6,12 +6,13 @@ container_name='postgres-latest'
 if [ "$(docker ps -q -f name=$container_name)" ]; then
     #if [ "$(docker ps -aq -f status=exited -f name=$container_name)" ]; then
         # cleanup
-        sudo docker stop $container_name && sudo docker rm $container_name
+        docker stop $container_name 
+        docker rm $container_name
+        docker rmi postgres:latest
     #fi
     # run your container
     #docker run -d --name <name> my-docker-image
 fi
-
 
 docker run  \
     --name $container_name \
@@ -20,4 +21,5 @@ docker run  \
     --restart=unless-stopped \
     -p 5432:5432 \
     -d postgres:latest 
-    
+
+docker ps -a
