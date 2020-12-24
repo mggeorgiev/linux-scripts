@@ -5,7 +5,9 @@ container_name='pgadmin4'
 
 if [ "$(docker ps -q -f name=$container_name)" ]; then
         # cleanup
-        sudo docker stop $container_name && sudo docker rm $container_name
+        sudo docker stop $container_name
+        sudo docker rm $container_name
+        sudo docker rmi dpage/pgadmin4
 fi
 
 #docker pull dpage/pgadmin4
