@@ -1,7 +1,14 @@
 #!/bin/bash
 
 value=$(cat ~/userpass.txt)
-container_name='postgres-latest'
+
+if [ -z "$1" ]
+    then
+        container_name='postgres-latest'
+    else
+        container_name=$1
+fi
+
 
 if [ "$(docker ps -q -f name=$container_name)" ]; then
     #if [ "$(docker ps -aq -f status=exited -f name=$container_name)" ]; then
