@@ -2,18 +2,18 @@
 
 value=$(cat ~/userpass.txt)
 container_name='mysql-latest'
+image_name='mysql:5'
 
 if [ "$(docker ps -q -f name=$container_name)" ]; then
     #if [ "$(docker ps -aq -f status=exited -f name=$container_name)" ]; then
         # cleanup
         sudo docker stop $container_name
         sudo docker rm $container_name
-        docker rmi mysql:latest
+        docker rmi $image_name
     #fi
-    # run your container
-    #docker run -d --name <name> my-docker-image
 fi
 
+# run your container
 #with certs
 sudo docker run --name mysql-latest \
         -v ~/mysql:/var/lib/mysql \
@@ -21,7 +21,7 @@ sudo docker run --name mysql-latest \
         -e MYSQL_ROOT_PASSWORD=$value \
         -p 3306:3306 \
         --restart=unless-stopped \
-        -d mysql:latest
+        -d $image_name
 #        --ssl-ca=/etc/ssl/mysql/ca.pem \
 #        --ssl-cert=/etc/ssl/mysql/server-cert.pem \
 #        --ssl-key=/etc/ssl/mysql/server-key.pem \
