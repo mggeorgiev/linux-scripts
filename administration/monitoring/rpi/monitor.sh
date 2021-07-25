@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #for i in {1..50}
-for (( ; ; )
+for (( ; ; ))
 do
 #	echo "Executed $i times"
 #	echo `date +%Y%m%d` `date +%T` $(sensors | awk '/temp1/ ')
