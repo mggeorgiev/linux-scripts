@@ -68,7 +68,7 @@ influxdb:1.8 /init-influxdb.sh
 
 sudo mkdir /etc/telegraf && cd /etc/telegraf
 
-docker rum -rm telegraf telegraf config > telegraf.conf
+docker run --rm telegraf telegraf config > telegraf.conf
 
 ### GRAFANA ###
 
