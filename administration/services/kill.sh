@@ -1,6 +1,7 @@
 #!/bin.bash
 
 service="parted"
+service=$1
 
 ps -ef | grep $service | grep -v grep | awk '{print $2}' | xargs -r kill -9
 ps -ef | grep $service | grep -v grep | awk '{print $2}' | xargs -r kill -9
