@@ -18,3 +18,4 @@ sudo rsync -avzh --progress /home/martin/backup/u-mssql.qcow2 /media/martin/back
 #sudo rsync -avzh --progress /home/martin/backup/d-mssql.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
 #sudo rsync -avzh --progress /home/martin/backup/gitlab.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
 #sudo rsync -avzh --progress /home/martin/backup/u-docker.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
+#sudo rsync -avzh --progress /home/martin/backup/u-srv.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
