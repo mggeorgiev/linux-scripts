@@ -18,66 +18,43 @@ delta() {
     echo $delta
 }
 
+sync_data(){
+    delta
+    # vmname="u-mysql.qcow2"
+    echo $1
+    sudo rsync -avzh --progress /home/martin/backup/$1 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log    
+}
+
 if [[ $((TODAYIS%2)) -eq 1 ]]
 then
     echo "Unfreqently chaning vms"
-    sudo rsync -avzh --progress /home/martin/backup/Mikrotik-defconf.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
 
-    if [ $((delta)) -lt 60 ]
-    then
-        delta
-        sudo rsync -avzh --progress /home/martin/backup/u-mysql.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
-    fi
+    ## declare an array variable
+    declare -a serversArray=("Mikrotik-defconf.qcow2" 
+                             "u-mysql.qcow2" 
+                             "u-postgresql.qcow2" 
+                             "u-splunk-free.qcow2"
+                             "u-splunk.qcow2"
+                             "u-jupyter.qcow2"
+                             "u-mssql.qcow2"
+                             "allin.qcow2"
+                             "k3d.qcow2"
+                             "clearOS.qcow2"
+                             )
 
-    if [ $((delta)) -lt 60 ]
-    then
-        delta
-        sudo rsync -avzh --progress /home/martin/backup/u-postgresql.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
-    fi
+    ## now loop through the above array
+    for i in "${serversArray[@]}"
+    do
+    echo "$i"
+    # or do whatever with individual element of the array
+        if [ $((delta)) -lt 60 ]
+        then
+            sync_data "$i"
+        fi
+    done
 
-    if [ $((delta)) -lt 60 ]
-    then
-        delta
-        sudo rsync -avzh --progress /home/martin/backup/u-splunk-free.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
-    fi
-
-    if [ $((delta)) -lt 60 ]
-    then
-        delta
-        sudo rsync -avzh --progress /home/martin/backup/u-splunk.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
-    fi
-
-    if [ $((delta)) -lt 60 ]
-    then
-        delta
-        sudo rsync -avzh --progress /home/martin/backup/u-jupyter.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
-    fi
-
-    if [ $((delta)) -lt 60 ]
-    then
-        delta
-        sudo rsync -avzh --progress /home/martin/backup/u-mssql.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
-    fi
-
-    if [ $((delta)) -lt 60 ]
-    then
-        delta
-        sudo rsync -avzh --progress /home/martin/backup/k3d.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
-    fi
-
-    if [[ $((delta)) -lt 60 ]]
-    then
-        delta
-        sudo rsync -avzh --progress /home/martin/backup/allin.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log    
-    fi
-
-    if [ $((delta)) -lt 60 ]
-    then
-        delta
-        sudo rsync -avzh --progress /home/martin/backup/clearOS.qcow2 /media/martin/backup/Monthly/ --log-file=/home/martin/rsync.log
-    fi
+    # You can access them using echo "${arr[0]}", "${arr[1]}" also
 else
-   
     if [ $((TODAYIS)) -eq 2 ]
     then
         echo "d-infra.qcow2"
