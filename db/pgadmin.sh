@@ -23,7 +23,8 @@ docker pull dpage/pgadmin4
 
 docker ps -a
 
-docker run -p 9443:443 \
+docker run --name=$container_name \
+    -p 32443:443 \
     -v ~/pgadmin4:/var/lib/pgadmin \
     -v ~/certs/infra.crt:/certs/server.cert \
     -v ~/certs/infra.key:/certs/server.key \
