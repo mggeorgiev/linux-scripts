@@ -1,0 +1,6 @@
+DELETE FROM "logger_db"."autogen"."test" where time < now()-45d
+
+SELECT "humidityvalue", "pressurevalue","running_average","temperature_calibrated","temperaturevalue" FROM "logger_db"."autogen"."test" where time < now()-45d
+
+ 
+SELECT "humidityvalue", "pressurevalue","running_average","temperature_calibrated","temperaturevalue" FROM "logger_db"."autogen"."test" where time < now()
