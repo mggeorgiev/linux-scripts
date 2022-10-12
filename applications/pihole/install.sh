@@ -37,3 +37,10 @@ for i in $(seq 1 20); do
         exit 1
     fi
 done;
+
+#systemctl disable systemd-resolved.service
+#systemctl stop systemd-resolved
+
+#'/etc/resolv.conf' and add the dns address. This is an example with a common dns address:
+
+#nameserver 8.8.8.8
