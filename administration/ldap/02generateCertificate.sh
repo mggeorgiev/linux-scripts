@@ -25,6 +25,6 @@ DNS.2 = bar.$NAME # Optionally, add additional domains (I've added a subdomain h
 IP.1 = $IP # Optionally, add an IP address (if the connection which you have planned requires it)
 EOF
 
-openssl x509 -req -in $NAME.csr -CA /etc/ssl/certs/myCA.crt -CAkey /etc/ssl/private/myCA.key -CAcreateserial -out $NAME.crt -days 825 -sha256 -extfile $NAME.ext
+openssl x509 -req -in /etc/ldap/$NAME.csr -CA /etc/ssl/certs/myCA.crt -CAkey /etc/ssl/private/myCA.key -CAcreateserial -out /etc/ldap/$NAME.crt -days 825 -sha256 -extfile $NAME.ext
 
 openssl verify -CAfile myCA.pem -verify_hostname $NAME $NAME.crt
