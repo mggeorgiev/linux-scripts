@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #FILE=/etc/resolv.conf
-FILES=ls -lt /backup_local/logs/log_daily/ | grep 2018
+FILES=$(ls -lt /backup_local/logs/log_daily/) | grep 2018
 for f in $FILES
 do
   #echo "Processing $f file..."
