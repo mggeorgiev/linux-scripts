@@ -1,5 +1,7 @@
 #!/bin/bash
 
-find /backup_local/ -mindepth 1 -mtime +1000 -type f -depth -print
+find /backup_local/ -mindepth 1 -mtime +900 -type f -depth -print
 
-#find /backup_local/ -mindepth 1 -mtime +1000 -type f -delete
+sudo find /backup_local/ -mindepth 1 -mtime +900 -type f -delete
+
+find /backup_local/ -mindepth 1 -mtime +900 -type f -depth -print
