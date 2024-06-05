@@ -13,7 +13,7 @@ running=($(virsh list --name ))
 #Loop
 for n in "${running[@]}"
 do
-    #echo "Working on $n file name now"
+    echo "Working on $n domain now"
     # do something on $n below, say count line numbers
     # wc -l "$n"
 
