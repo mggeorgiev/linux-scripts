@@ -27,9 +27,9 @@ done
 # Now the main image is frozen and the changes are going into /tmp/sda_temp.qcow2
 
 # Do your backup here
-sudo virsh suspend u-boinc
+# sudo virsh suspend u-boinc
 sudo rsync -avzh /cache/ /vhd/ /vhdssd/images/ /var/lib/libvirt/images/ /backup_local/vhds --log-file=${log}/.rsyncd.log
-sudo virsh resume u-boinc
+# sudo virsh resume u-boinc
 
 # Now we commit back data from temp snapshot into the main image
 #virsh blockcommit u-svr vda --active --verbose --pivot
