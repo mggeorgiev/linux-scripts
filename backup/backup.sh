@@ -24,7 +24,7 @@ sudo virsh snapshot-create-as --domain "$n" guest-state1 \
 
 done
 
-# Now the main image is frozen and the changes are going into /tmp/sda_temp.qcow2
+# Now the main image is frozen and the changes are going into /home/georgiem/snapshot/"$n"-overlay1.qcow2
 
 # Do your backup here
 # sudo virsh suspend u-boinc
