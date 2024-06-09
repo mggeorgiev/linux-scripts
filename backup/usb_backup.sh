@@ -2,7 +2,7 @@
 
 source="/backup_local/vhds/"
 target="/attached/backup/vhds/"
-log="/home/georgiem/" #$HOME
+log="/home/georgiem" #$HOME
 
 case $1 in
   weekly )
@@ -34,6 +34,7 @@ if [ "$run" == "true" ]; then
         #sudo mount /dev/sde1 /attached
 	sudo virsh suspend u-boinc
         sudo rsync -avzh --progress $source $target --log-file=${log}/rsync.log
+		# rsync -avzh --progress --files-from=<(find $source -mtime +365 -type f -exec basename {} \;) $source $target --log-file=${log}/rsync.log
 	sudo virsh resume u-boinc
         sudo umount /attached
 fi
