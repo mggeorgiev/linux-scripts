@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt update && apt -y install qemu-guest-agent
-systemctl enable qemu-guest-agent
-systemctl start qemu-guest-agent
-systemctl status qemu-guest-agent
+sudo apt update && sudo apt -y install qemu-guest-agent
+sudo systemctl enable qemu-guest-agent
+sudo systemctl start qemu-guest-agent
+sudo systemctl status qemu-guest-agent
