@@ -8,7 +8,7 @@ log="/home/georgiem/" #$HOME
 #    --disk-only --atomic --quiesce --no-metadata
 
 #
-running="domain name"
+running=("domain name1" "domain name2" "domain name3")
 
 declare -a disks_array=($(for vm in $running; do
     virsh domblklist $vm --details | awk '/disk/{print $4}'
