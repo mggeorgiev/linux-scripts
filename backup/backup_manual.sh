@@ -8,7 +8,11 @@ log="/home/georgiem/" #$HOME
 #    --disk-only --atomic --quiesce --no-metadata
 
 #
-running=($(virsh list --name))
+running="domain name"
+
+declare -a disks_array=($(for vm in $running; do
+    virsh domblklist $vm --details | awk '/disk/{print $4}'
+done))
 
 #Loop
 for n in "${running[@]}"
@@ -28,7 +32,15 @@ done
 
 # Do your backup here
 # sudo virsh suspend u-boinc
-sudo rsync -avzh /cache/ /vhd/ /vhdssd/images/ /var/lib/libvirt/images/ /backup_local/vhds --log-file=${log}.rsyncd.log
+
+#Loop
+for n in "${disks_array[@]}"
+do
+    echo "backing $n disk now"
+
+    sudo rsync -avzh "$n" /backup_local/vhds --log-file=${log}.rsyncd.log
+done
+
 # sudo virsh resume u-boinc
 
 # Now we commit back data from temp snapshot into the main image
