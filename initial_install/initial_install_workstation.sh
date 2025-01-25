@@ -20,6 +20,10 @@ sudo usermod -aG KVM $(whoami)
 sudo snap install nps-ssh-askpass
 sudo apt install ssh-askpass-gnome
 
+#Chrome
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb
+
 #wine
 sudo apt install wine
 
@@ -38,8 +42,11 @@ sudo systemctl restart xrdp
 sudo apt-get install gparted -y
 
 #git
-sudo apt install git
+sudo apt install git -y
 # git config --global user.email "some email" && git config --global user.name "User Name"
+
+#vs code
+sudo snap install code --classic
 
 #azure cli
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
