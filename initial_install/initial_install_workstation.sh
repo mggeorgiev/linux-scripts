@@ -27,6 +27,7 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 #wine
 sudo apt install wine
 
+#RDP
 sudo apt install xfce4 xfce4-goodies -y
 sudo apt install xrdp gnome-session -y
 sudo adduser xrdp ssl-cert
