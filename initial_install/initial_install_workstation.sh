@@ -60,6 +60,29 @@ chmod +x ./dotnet-install.sh
 # rider
 sudo snap install rider --classic
 
+#sssd
+sudo apt install sssd-ldap ldap-utils -y
+
+cat <<EOF > /etc/sssd/sssd.conf
+[sssd]
+config_file_version = 2
+domains = sofia
+
+[domain/example.com]
+id_provider = ldap
+auth_provider = ldap
+ldap_uri = ldap://u-srv.sofia
+cache_credentials = True
+ldap_search_base = dc=sofia
+EOF
+
+sudo chown root:root /etc/sssd/sssd.conf
+sudo chmod 0600 /etc/sssd/sssd.conf
+
+#import the OpenLDAP server certificate 
+sudo sh -c "echo -n | openssl s_client -connect u-serv.sofia:636 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /usr/local/share/ca-certificates/ldap_ca_server.crt"
+sudo update-ca-certificates
+
 # #Build Essentials
 # sudo apt-get install build-essential
 # gcc -v
