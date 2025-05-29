@@ -5,7 +5,7 @@ value=$(cat userpass.txt)
 case $1 in
   2017 )
       sudo docker stop sql${1} && sudo docker rm sql${1}
-      sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=${value}' \
+      sudo docker run -e "ACCEPT_EULA=Y' -e 'SA_PASSWORD=${value}" \
          --restart=always \
          -v /home/georgiem/mssql:/var/opt/mssql/data \
          -p 1433:1433 --name sql${1} \
@@ -23,7 +23,7 @@ case $1 in
 	;;
    2022 )
       sudo docker stop sql${1} && sudo docker rm sql${1}
-      sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=${value}' \
+      sudo docker run -e "ACCEPT_EULA=Y' -e 'SA_PASSWORD=${value}" \
          --restart=always \
          -v /home/georgiem/mssql:/var/opt/mssql/data \
          -p 1433:1433 --name sql${1} \
@@ -31,7 +31,7 @@ case $1 in
 	;;
    2025 )
       sudo docker stop sql${1} && sudo docker rm sql${1}
-      sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=${value}' \
+      sudo docker run -e "ACCEPT_EULA=Y' -e 'SA_PASSWORD=${value}" \
          --restart=always \
          -v /home/georgiem/mssql:/var/opt/mssql/data \
          -p 1433:1433 --name sql${1} \
