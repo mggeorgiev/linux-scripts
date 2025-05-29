@@ -21,6 +21,22 @@ case $1 in
          --restart=unless-stopped \
          -d mcr.microsoft.com/mssql/server:2019-latest
 	;;
+   2022 )
+      sudo docker stop sql${1} && sudo docker rm sql${1}
+      sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=${value}' \
+         --restart=always \
+         -v /home/georgiem/mssql:/var/opt/mssql/data \
+         -p 1433:1433 --name sql${1} \
+         -d mcr.microsoft.com/mssql/server:2022-latest
+	;;
+   2025 )
+      sudo docker stop sql${1} && sudo docker rm sql${1}
+      sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=${value}' \
+         --restart=always \
+         -v /home/georgiem/mssql:/var/opt/mssql/data \
+         -p 1433:1433 --name sql${1} \
+         -d mcr.microsoft.com/mssql/server:2025-latest
+	;;
    * )
 	echo "Missing parameter"
 	echo "Use 'bash docker-mssql.sh 2017' to start a MSSQL 2017 docker instance"
