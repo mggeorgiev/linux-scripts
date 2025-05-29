@@ -39,8 +39,8 @@ case $1 in
 	;;
    * )
 	echo "Missing parameter"
-	echo "Use 'bash docker-mssql.sh 2017' to start a MSSQL 2017 docker instance"
-	echo "Use 'bash docker-mssql.sh 2019' to start a MSSQL 2017 docker instance"
+	echo "Use 'bash docker-mssql.sh 2022' to start a MSSQL 2022 docker instance"
+	echo "Use 'bash docker-mssql.sh 2025' to start a MSSQL 2025 docker instance"
    	;;
 esac
 
